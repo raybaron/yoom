@@ -53,9 +53,12 @@ const MeetingTypeList = () => {
         },
       });
       setCallDetail(call);
-      if (!values.description) {
+
+      // Redirect only if it's an instant meeting
+      if (meetingState === 'isInstantMeeting') {
         router.push(`/meeting/${call.id}`);
       }
+
       toast({
         title: 'Meeting Created',
       });
